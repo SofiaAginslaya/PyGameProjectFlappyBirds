@@ -57,7 +57,8 @@ class TubeUp(pg.sprite.Sprite):
             self.rect.x = window_size[0]
             self.rect.y = random.randint(250, 650) - len_y
             tube_down.rect.y = self.rect.y + len_y
-            self.rect.y = self.rect.y - 1189
+            self.rect.y = self.rect.y - 1189  # труба очень большая, и я не знаю, как определить не центр трубы,
+            # а ее верхушки
             # print(f"РАЗНИЦА: {abs(self.rect.y)} - {tube_down.rect.y}", self.rect.y - tube_down.rect.y)
         else:
             self.rect.x = self.rect.x - game_speed
@@ -68,7 +69,7 @@ class Bird(pg.sprite.Sprite):
         pg.sprite.Sprite.__init__(self)
         self.image = pg.image.load(filename).convert_alpha()
         self.rect = self.image.get_rect(
-            center=(window_size[0]//2, window_size[1]//2))
+            center=(window_size[0] // 2, window_size[1] // 2))
 
 
 bird = Bird()
@@ -89,7 +90,7 @@ lost_font = pygame.font.Font(None, 72)
 text_lost = lost_font.render("Проиграл!", True, (50, 150, 200))
 
 score_font = pygame.font.Font(None, 72)
-text_score = score_font.render("Монет: "+str(coins), True, (50, 150, 200))
+text_score = score_font.render("Монет: " + str(coins), True, (50, 150, 200))
 
 while_change = 0
 
