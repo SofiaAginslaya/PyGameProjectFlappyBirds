@@ -20,6 +20,8 @@ pygame.init()
 pygame.display.set_mode(window_size)
 clock = pygame.time.Clock()
 
+fon_image = pygame.transform.scale(pygame.image.load("ground.png"), (window_size))
+sc.blit(fon_image, (0, 0))
 filename = "bird.png"
 filename_tube = "tube.png"
 filename_tube_up = "tube_up.png"
@@ -135,7 +137,7 @@ while True:
     while_change_game = 0
     while while_change == 0:
         clock.tick(FPS)
-        sc.fill((0, 0, 0))
+        show_intro()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -153,7 +155,7 @@ while True:
 
                     while while_change == 0:
                         clock.tick(FPS)
-                        sc.fill((0, 0, 0))
+                        show_intro()
 
                         for event in pygame.event.get():
                             if event.type == pygame.QUIT:
@@ -223,7 +225,7 @@ while True:
         while while_change == 0:
 
             clock.tick(FPS)
-            sc.fill((0, 0, 0))
+            show_intro()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -285,7 +287,7 @@ while True:
         # экран после смерти
         while while_change == 0:
             clock.tick(FPS)
-            sc.fill((0, 0, 0))
+            show_intro()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
